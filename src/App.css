@@ -12,4 +12,14 @@
 .subrayado {
     border-bottom: 3px solid #e7b315;
 }
-
+.padding-section {
+    padding: 120px 32px;
+}
+.fs-20 {
+    font-size: 20px;
+    line-height: 26px;
+}
+.fs-32 {
+    font-size: 48px;
+    line-height: 48px;
+}

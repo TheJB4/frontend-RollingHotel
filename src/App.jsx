@@ -2,6 +2,7 @@ import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Contacto from "./Components/pages/Contacto";
+import Error from "./Components/pages/Error";
 import Home from "./pages/Home";
 import Header from "./Components/Header";
 
@@ -27,10 +28,7 @@ function App() {
                     ></Route>
                     <Route path="/contacto" element={<Contacto />}></Route>
                     <Route path="/reserva" element={<h1>Reserva</h1>}></Route>
-                    <Route
-                        path="*"
-                        element={<h1>Pagina no encontrada 404</h1>}
-                    ></Route>
+                    <Route path="/*" element={<Error />}></Route>
                 </Routes>
             </BrowserRouter>
         </>
