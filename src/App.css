@@ -1,0 +1,15 @@
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.grow {
+    flex-grow: 1;
+}
+.infoContacto {
+    list-style: none;
+}
+.subrayado {
+    border-bottom: 3px solid #e7b315;
+}
+
