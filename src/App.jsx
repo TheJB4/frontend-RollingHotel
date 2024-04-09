@@ -1,17 +1,18 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Contacto from "./components/pages/Contacto";
-import Home from './pages/Home';
-import Header from './Components/Header';
+import Contacto from "./Components/pages/Contacto";
+import Home from "./pages/Home";
+import Header from "./Components/Header";
 
 function App() {
     return (
         <>
             <BrowserRouter>
+                <Header />
                 <Routes>
                     <Route path="/" element={<Outlet />}></Route>
-                    <Route index element={<h1>Home</h1>}></Route>
+                    <Route index element={<Home />}></Route>
                     <Route
                         path="/habitaciones"
                         element={<h1>Habitaciones</h1>}
