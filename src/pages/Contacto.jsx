@@ -24,7 +24,7 @@ function Contacto() {
     return (
         <Container fluid className="grow p-0">
             <div className="bg-secondary py-5">
-                <h1 className="display-1 text-light text-center fw-medium">
+                <h1 className="display-1 text-light text-center title">
                     Contactanos
                 </h1>
             </div>
@@ -32,7 +32,7 @@ function Contacto() {
                 <div className="row justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center">
                     <div className="col-12 col-md-6 col-lg-5 pt-4 pt-md-0">
                         <div className="px-1 py-4">
-                            <p className="fs-2 fw-medium text-center">
+                            <p className="fs-2 fw-bold text-center">
                                 Donde nos encontramos
                             </p>
                             <ul className="infoContacto my-4">
@@ -68,9 +68,9 @@ function Contacto() {
                     <div className="col-12 col-md-6 col-lg-5 py-4">
                         <div className>
                             <p className="fs-4 mb-lg-0 text-center">
-                                ¿Tenes alguna duda?
+                                Tenes alguna duda?
                             </p>
-                            <p className="fs-2 fw-medium text-center">
+                            <p className="fs-2 fw-bold text-center">
                                 Contactanos
                             </p>
                         </div>

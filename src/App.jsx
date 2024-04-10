@@ -1,10 +1,11 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Contacto from "./Components/pages/Contacto";
-import Error from "./Components/pages/Error";
+import Contacto from "./pages/Contacto";
+import Error from "./pages/Error";
 import Home from "./pages/Home";
 import Header from "./Components/Header";
+import Administrador from "./pages/admin/Administrador";
 
 function App() {
     return (
@@ -18,10 +19,7 @@ function App() {
                         path="/habitaciones"
                         element={<h1>Habitaciones</h1>}
                     ></Route>
-                    <Route
-                        path="/servicios"
-                        element={<h1>Servicios</h1>}
-                    ></Route>
+                    <Route path="/admin" element={<Administrador />}></Route>
                     <Route
                         path="/novedades"
                         element={<h1>Novedades</h1>}
