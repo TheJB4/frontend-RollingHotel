@@ -55,3 +55,6 @@ body {
 .title {
     font-family: "Mont heavy";
 }
+.w-250 {
+    width: 250px !important;
+}
