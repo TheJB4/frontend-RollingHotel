@@ -1,20 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { getHabitaciones } from "../../helpers/queries";
 import { RiAdminLine } from "react-icons/ri";
 
 function Administrador() {
-    const [habitaciones, setHabitaciones] = useState([]);
-    const obtenerHabitaciones = async () => {
-        const res = await getHabitaciones();
-        if (res.ok) {
-            const data = await res.json();
-            setHabitaciones(data);
-        }
-    };
-    useEffect(() => {
-        obtenerHabitaciones();
-    }, []);
     return (
         <div className="grow container-fluid px-0">
             <div className="bg-naranja py-5">
@@ -26,30 +13,39 @@ function Administrador() {
                 </h1>
             </div>
             <div className="py-4 px-1">
-                <h2 className="fw-bold mb-4"> Hola admin!</h2>
+                <h2 className="fw-bold display-4 mb-4"> Hola admin!</h2>
                 <div className="container text-center py-2">
                     <div className="py-2 row gap-2 justify-content-center">
-                        <div className="col-12 col-md-3 col-lg-4 px-2 rounded py-4 bg-secondary d-flex flex-column justify-content-center align-items-center p-2">
-                            <p className="fw-bold fs-3">Usuarios</p>
-                            <p>1</p>
-                            <Link className="btn btn-light" to="/admin/usuario">
+                        <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-secondary d-flex flex-column justify-content-center align-items-center p-2 text-light">
+                            <p className="fw-bold fs-3 text-decoration-underline">
+                                Usuarios
+                            </p>
+                            <Link
+                                className="btn btn-outline-light fw-bold px-4"
+                                to="/admin/usuario"
+                            >
                                 Ver mas...
                             </Link>
                         </div>
-                        <div className="col-12 col-md-3 col-lg-4 px-2 rounded py-4 bg-warning d-flex flex-column justify-content-center align-items-center p-2">
-                            <p className="fw-bold fs-3">Habitaciones</p>
-                            <p>{habitaciones.length}</p>
+                        <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-primary d-flex flex-column justify-content-center align-items-center p-2 text-light">
+                            <p className="fw-bold fs-3 text-decoration-underline">
+                                Habitaciones
+                            </p>
                             <Link
-                                className="btn btn-light"
+                                className="btn btn-outline-light fw-bold px-4"
                                 to="/admin/habitacion"
                             >
                                 Ver mas...
                             </Link>
                         </div>
-                        <div className="col-12 col-md-3 col-lg-4 px-2 rounded py-4 bg-info d-flex flex-column justify-content-center align-items-center p-2">
-                            <p className="fw-bold fs-3">Reservas</p>
-                            <p>1</p>
-                            <Link className="btn btn-light" to="/admin/reserva">
+                        <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-info d-flex flex-column align-items-center p-2 text-light">
+                            <p className="fw-bold fs-3 text-decoration-underline">
+                                Reservas
+                            </p>
+                            <Link
+                                className="btn btn-outline-light fw-bold px-4"
+                                to="/admin/reserva"
+                            >
                                 Ver mas...
                             </Link>
                         </div>

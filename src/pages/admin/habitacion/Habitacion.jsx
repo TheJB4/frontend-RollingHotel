@@ -1,9 +1,10 @@
 import Table from "react-bootstrap/Table";
-import Item from "../Item";
+import Item from "./Item";
 import { FiFilePlus } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getHabitaciones } from "../../../helpers/queries";
+import { MdBedroomParent } from "react-icons/md";
 
 function Habitacion() {
     const [habitaciones, setHabitaciones] = useState([]);
@@ -19,19 +20,24 @@ function Habitacion() {
     }, []);
     return (
         <div className="grow">
-            <div className="bg-naranja py-5">
+            <div className="bg-primary py-5">
                 <h1 className="display-1 text-light text-center title">
-                    Administrador
+                    <span>
+                        <MdBedroomParent />
+                    </span>
+                    Habitaciones
                 </h1>
             </div>
             <div className="px-1 py-4 px-md-4">
-                <div className="d-flex justify-content-between align-items-center">
-                    <h1 className="my-0 fw-bold">Habitaciones</h1>
+                <div className="d-flex justify-content-center justify-content-md-start align-items-center">
                     <Link
                         to="/admin/habitacion/alta"
-                        className="btn btn-naranja"
+                        className="btn btn-primary fw-bold"
                     >
-                        <FiFilePlus />
+                        <span>
+                            <FiFilePlus />
+                        </span>{" "}
+                        Cargar Habitacion
                     </Link>
                 </div>
                 <hr />

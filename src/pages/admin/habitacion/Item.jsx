@@ -1,5 +1,5 @@
-import { deleteHabitacion, getHabitaciones } from "../../helpers/queries";
-import Options from "./Options";
+import { deleteHabitacion, getHabitaciones } from "../../../helpers/queries";
+import Options from "../Options";
 import Swal from "sweetalert2";
 import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
@@ -97,7 +97,7 @@ function Item({ habitacion, setHabitaciones }) {
                 piso={piso}
                 descripcion={descripcion}
             />
-            <tr>
+            <tr className={`${disponible ? "" : "table-danger"}`}>
                 <td className="text-truncate">{numero}</td>
                 <td className="text-truncate">{disponible ? "si" : "no"}</td>
                 <td className="text-truncate">$ {precio}</td>
@@ -111,7 +111,11 @@ function Item({ habitacion, setHabitaciones }) {
                     </Button>
                 </td>
                 <td className="d-flex align-items-center justify-content-center gap-1">
-                    <Options borrarHabitacion={borrarHabitacion} id={_id} />
+                    <Options
+                        type="habitacion"
+                        borrar={borrarHabitacion}
+                        id={_id}
+                    />
                 </td>
             </tr>
         </>

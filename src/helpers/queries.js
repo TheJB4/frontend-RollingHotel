@@ -10,7 +10,7 @@ export const getHabitaciones = async () => {
     }
 };
 
-export const confirmarDisponibilidad = async (nro) => {
+export const confirmarLibre = async (nro) => {
     const res = await getHabitaciones();
     const habitaciones = await res.json();
     const hab = habitaciones.filter((item) => item?.numero === parseInt(nro));
@@ -64,6 +64,50 @@ export const deleteHabitacion = async (id) => {
     try {
         const res = await fetch(`${api_habitaciones}/${id}`, {
             method: "DELETE",
+        });
+        return res;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const getUsuarios = async () => {
+    try {
+        const res = await fetch(api_usuarios);
+        return res;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const getUsuarioById = async (id) => {
+    try {
+        const res = await fetch(`${api_usuarios}/${id}`);
+        return res;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const deleteUsuario = async (id) => {
+    try {
+        const res = await fetch(`${api_usuarios}/${id}`, {
+            method: "DELETE",
+        });
+        return res;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const putUsuario = async (data, id) => {
+    try {
+        const res = await fetch(`${api_usuarios}/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
         });
         return res;
     } catch (error) {

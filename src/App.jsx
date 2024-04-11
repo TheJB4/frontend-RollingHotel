@@ -9,6 +9,7 @@ import Administrador from "./pages/admin/Administrador";
 import Habitacion from "./pages/admin/habitacion/Habitacion";
 import Usuario from "./pages/admin/usuario/Usuario";
 import Crear from "./pages/admin/habitacion/Crear";
+import Formulario from "./pages/admin/usuario/Formulario";
 
 function App() {
     return (
@@ -22,7 +23,14 @@ function App() {
                         path="/habitaciones"
                         element={<h1>Habitaciones</h1>}
                     ></Route>
+                    {/*-------------------ADMINISTRADOR----------------------*/}
                     <Route path="/admin" element={<Administrador />}></Route>
+                    <Route path="/admin/usuario" element={<Usuario />}></Route>
+                    <Route
+                        exac
+                        path="/admin/usuario/actualizar/:id"
+                        element={<Formulario />}
+                    ></Route>
                     <Route
                         path="/admin/habitacion"
                         element={<Habitacion />}
@@ -37,12 +45,13 @@ function App() {
                         path="/admin/habitacion/actualizar/:id"
                         element={<Crear editar={true} title="Actualizar" />}
                     ></Route>
+                    {/*-------------------------------------------------------*/}
                     <Route
                         path="/novedades"
                         element={<h1>Novedades</h1>}
                     ></Route>
-                    <Route path="/contacto" element={<Contacto />}></Route>
                     <Route path="/reserva" element={<h1>Reserva</h1>}></Route>
+                    <Route path="/contacto" element={<Contacto />}></Route>
                     <Route path="/*" element={<Error />}></Route>
                 </Routes>
             </BrowserRouter>

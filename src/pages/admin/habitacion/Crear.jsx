@@ -4,7 +4,7 @@ import {
     postHabitacion,
     getHabitacionById,
     putHabitacion,
-    confirmarDisponibilidad,
+    confirmarLibre,
 } from "../../../helpers/queries";
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
@@ -53,7 +53,7 @@ function Crear({ title, editar }) {
                     text: "La habitacion fue actualizada con exito!",
                     icon: "success",
                 });
-                navigate("/admin");
+                navigate("/admin/habitacion");
             }
         } else {
             const res = await postHabitacion(data);
@@ -71,17 +71,17 @@ function Crear({ title, editar }) {
                     text: "La habitacion fue cargada con exito!",
                     icon: "success",
                 });
-                navigate("/admin");
+                navigate("/admin/habitacion");
             }
         }
     };
 
-    const [disponible, setDisponible] = useState(true);
+    const [libre, setLibre] = useState(true);
 
     async function confirmarNumero() {
         const numero = getValues("numero");
-        const res = await confirmarDisponibilidad(numero);
-        setDisponible(res);
+        const res = await confirmarLibre(numero);
+        setLibre(res);
     }
 
     useEffect(() => {
@@ -128,17 +128,17 @@ function Crear({ title, editar }) {
                             className="my-2"
                             onClick={confirmarNumero}
                         >
-                            confirmar disponibilidad
+                            confirmar numero
                         </Button>
-                        {disponible ? (
+                        {libre ? (
                             <span className="bg-success text-light rounded py-1 px-2">
                                 <LuBadgeCheck />
-                                disponible
+                                libre
                             </span>
                         ) : (
                             <span className="bg-danger text-light rounded py-1 px-2">
                                 <MdOutlineDangerous />
-                                no disponible
+                                ocupado
                             </span>
                         )}
                     </div>

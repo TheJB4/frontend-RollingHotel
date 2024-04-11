@@ -1,32 +1,33 @@
 import Table from "react-bootstrap/Table";
-import Item from "../Item";
-import { FiFilePlus } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import Item from "./Item";
 import { useState, useEffect } from "react";
+import { getUsuarios } from "../../../helpers/queries";
+import { FaUser } from "react-icons/fa";
 
 function Administrador() {
-    const obtenerHabitaciones = async () => {
-        const res = await getHabitaciones();
+    const [usuarios, setUsuarios] = useState([]);
+    const obtenerUsuarios = async () => {
+        const res = await getUsuarios();
         if (res.ok) {
             const data = await res.json();
-            setHabitaciones(data);
+            setUsuarios(data);
         }
     };
+
     useEffect(() => {
-        obtenerHabitaciones();
+        obtenerUsuarios();
     }, []);
     return (
         <div className="grow">
-            <div className="bg-naranja py-5">
+            <div className="bg-secondary py-5">
                 <h1 className="display-1 text-light text-center title">
-                    Administrador
+                    <span>
+                    <FaUser />
+                    </span>
+                    Usuarios
                 </h1>
             </div>
             <div className="px-1 py-4 px-md-4">
-                <div className="d-flex justify-content-center align-items-center">
-                    <h1 className="my-0 fw-bold">Usuarios</h1>
-                </div>
-                <hr />
                 <Table
                     hover
                     responsive
@@ -37,11 +38,31 @@ function Administrador() {
                             <th>nombre</th>
                             <th>apellido</th>
                             <th>email</th>
+                            <th>telefono</th>
+                            <th>estado</th>
                             <th>rol</th>
                             <th>opciones</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        {!usuarios.length ? (
+                            <tr>
+                                <td colSpan={7} className="text-danger">
+                                    No hay habitaciones cargadas
+                                </td>
+                            </tr>
+                        ) : (
+                            usuarios.map((item) => {
+                                return (
+                                    <Item
+                                        usuario={item}
+                                        key={item._id}
+                                        setUsuarios={setUsuarios}
+                                    />
+                                );
+                            })
+                        )}
+                    </tbody>
                 </Table>
             </div>
         </div>
