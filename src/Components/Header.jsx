@@ -1,15 +1,17 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import logo from "../assets/hotel.svg";
 import { Link } from "react-router-dom";
+import { MdLocalHotel } from "react-icons/md";
 
 function Header() {
     return (
         <>
             <Navbar key="sm" expand="md" bg="dark" data-bs-theme="dark">
-                <Container>
+                <Container fluid>
                     <Navbar.Brand as={Link} to="/" className="onTap m-0">
                         <img src={logo} alt="logo Rolling Hotel" width="50px" />
                     </Navbar.Brand>
@@ -29,67 +31,65 @@ function Header() {
                             <Offcanvas.Title
                                 id={`offcanvasNavbarLabel-expand-md`}
                             >
+                                <span>
+                                    <MdLocalHotel />
+                                </span>{" "}
                                 Rolling Hotel
                             </Offcanvas.Title>
                         </Offcanvas.Header>
-                        <Offcanvas.Body className="bg-dark text-light">
-                            <Nav className="justify-content-end flex-grow-1 pe-3">
-                                <Nav.Link>
-                                    <Link
-                                        to="/"
-                                        className="text-decoration-none text-light"
-                                    >
-                                        Inicio
-                                    </Link>
-                                </Nav.Link>
-                                <Nav.Link>
-                                    <Link
+                        <Offcanvas.Body className="bg-dark">
+                            <Nav className="ms-auto text-center align-items-center gap-4 justify-content-center">
+                                <Link
+                                    to="/"
+                                    className="text-decoration-none text-light"
+                                >
+                                    Inicio
+                                </Link>
+                                <NavDropdown
+                                    id="dropdown-informacion"
+                                    title="Informacion"
+                                    menuVariant="dark"
+                                    className="text-light"
+                                >
+                                    <NavDropdown.Item
+                                        as={Link}
                                         to="/habitaciones"
                                         className="text-decoration-none text-light"
                                     >
                                         Habitaciones
-                                    </Link>
-                                </Nav.Link>
-                                <Nav.Link>
-                                    <Link
-                                        to="/quienessomos"
-                                        className="text-decoration-none text-light"
-                                    >
-                                        Quienes somos
-                                    </Link>
-                                </Nav.Link>
-                                <Nav.Link>
-                                    <Link
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item
+                                        as={Link}
                                         to="/novedades"
                                         className="text-decoration-none text-light"
                                     >
                                         Novedades
-                                    </Link>
-                                </Nav.Link>
-                                <Nav.Link>
-                                    <Link
-                                        to="/contacto"
-                                        className="text-decoration-none text-light"
-                                    >
-                                        Contacto
-                                    </Link>
-                                </Nav.Link>
-                                <Nav.Link>
-                                    <Link
-                                        to="/Login"
-                                        className="text-decoration-none text-light"
-                                    >
-                                        Login
-                                    </Link>
-                                </Nav.Link>
-                                <Nav.Link>
-                                    <Link
-                                        to="/admin"
-                                        className="text-decoration-none text-light"
-                                    >
-                                        Administrador
-                                    </Link>
-                                </Nav.Link>
+                                    </NavDropdown.Item>
+                                </NavDropdown>
+                                <Link
+                                    to="/quienessomos"
+                                    className="text-decoration-none text-light"
+                                >
+                                    Nosotros
+                                </Link>
+                                <Link
+                                    to="/contacto"
+                                    className="text-decoration-none text-light"
+                                >
+                                    Contacto
+                                </Link>
+                                <Link
+                                    to="/Login"
+                                    className="text-decoration-none text-light"
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    to="/admin"
+                                    className="text-decoration-none btn btn-blue rounded-0 px-4"
+                                >
+                                    Administrador
+                                </Link>
                             </Nav>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>

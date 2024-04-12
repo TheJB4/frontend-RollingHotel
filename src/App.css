@@ -2,6 +2,12 @@
     --naranja: #fd5444;
     --naranja-light: #fd53449f;
     --naranja-dark: #af3a2f;
+    --blue-grey: #e4e2fd;
+    /* --blue-grey: #def; */
+    --dark: #1c1c21;
+    --beige: #fcf0ed;
+    --special-blue: #534ff2;
+    --special-blue-dark: #3c3ab4;
 }
 #root {
     min-height: 100vh;
@@ -43,14 +49,26 @@ body {
 .bg-naranja {
     background-color: var(--naranja) !important;
 }
+.bg-blue-grey {
+    background-color: var(--blue-grey) !important;
+}
 .bg-naranja-light {
     background-color: var(--naranja-light) !important;
 }
 .btn-naranja {
     background-color: var(--naranja) !important;
     color: #fff !important;
+    transition: all 0.2s ease-in-out;
     &:hover {
         background-color: var(--naranja-dark) !important;
+    }
+}
+.btn-blue {
+    background-color: var(--special-blue) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--special-blue-dark) !important;
     }
 }
 .title {
