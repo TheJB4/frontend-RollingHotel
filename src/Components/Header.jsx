@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-
+import logo from "../assets/hotel.svg";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -10,15 +10,15 @@ function Header() {
         <>
             <Navbar key="sm" expand="md" bg="dark" data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand href="#" className="text-light">
-                        Rolling Hotel
+                    <Navbar.Brand as={Link} to="/" className="onTap m-0">
+                        <img src={logo} alt="logo Rolling Hotel" width="50px" />
                     </Navbar.Brand>
                     <Navbar.Toggle
-                        aria-controls={`offcanvasNavbar-expand-sm`}
+                        aria-controls={`offcanvasNavbar-expand-md`}
                     />
                     <Navbar.Offcanvas
-                        id={`offcanvasNavbar-expand-sm`}
-                        aria-labelledby={`offcanvasNavbarLabel-expand-sm`}
+                        id={`offcanvasNavbar-expand-md`}
+                        aria-labelledby={`offcanvasNavbarLabel-expand-md`}
                         placement="end"
                         className="text-ligth"
                     >
@@ -27,7 +27,7 @@ function Header() {
                             className="bg-dark text-light"
                         >
                             <Offcanvas.Title
-                                id={`offcanvasNavbarLabel-expand-sm`}
+                                id={`offcanvasNavbarLabel-expand-md`}
                             >
                                 Rolling Hotel
                             </Offcanvas.Title>
@@ -80,6 +80,14 @@ function Header() {
                                         className="text-decoration-none text-light"
                                     >
                                         Login
+                                    </Link>
+                                </Nav.Link>
+                                <Nav.Link>
+                                    <Link
+                                        to="/admin"
+                                        className="text-decoration-none text-light"
+                                    >
+                                        Administrador
                                     </Link>
                                 </Nav.Link>
                             </Nav>
