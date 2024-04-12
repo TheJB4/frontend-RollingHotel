@@ -3,7 +3,7 @@ import error from "../assets/error.svg";
 
 function Error() {
     return (
-        <div className="padding-section">
+        <div className="grow p-3 p-md-5">
             <div className="d-flex flex-column justify-content-center align-items-center gap-4 flex-md-row">
                 <div>
                     <h1 className="display-1 fw-bold mt-3 text-naranja fs-32">

@@ -1,9 +1,7 @@
-import Header from '../Components/Header'
-
 export default function Home({ children }) {
     return (
-        <main>
+        <main className="grow">
             <p>Este es el home</p>
         </main>
-    )
+    );
 }

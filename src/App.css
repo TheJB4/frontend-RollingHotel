@@ -1,5 +1,6 @@
 :root {
     --naranja: #fd5444;
+    --naranja-light: #fd53449f;
     --naranja-dark: #af3a2f;
 }
 #root {
@@ -28,9 +29,6 @@ body {
 .subrayado {
     border-bottom: 3px solid #e7b315;
 }
-.padding-section {
-    padding: 112px 32px;
-}
 .fs-20 {
     font-size: 20px;
     line-height: 26px;
@@ -44,6 +42,9 @@ body {
 }
 .bg-naranja {
     background-color: var(--naranja) !important;
+}
+.bg-naranja-light {
+    background-color: var(--naranja-light) !important;
 }
 .btn-naranja {
     background-color: var(--naranja) !important;

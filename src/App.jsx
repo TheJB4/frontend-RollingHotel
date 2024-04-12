@@ -10,6 +10,7 @@ import Habitacion from "./pages/admin/habitacion/Habitacion";
 import Usuario from "./pages/admin/usuario/Usuario";
 import Crear from "./pages/admin/habitacion/Crear";
 import Formulario from "./pages/admin/usuario/Formulario";
+import Footer from "./Components/Footer";
 
 function App() {
     return (
@@ -54,6 +55,7 @@ function App() {
                     <Route path="/contacto" element={<Contacto />}></Route>
                     <Route path="/*" element={<Error />}></Route>
                 </Routes>
+                <Footer />
             </BrowserRouter>
         </>
     );
