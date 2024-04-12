@@ -24,7 +24,7 @@ function Contacto() {
     return (
         <Container fluid className="grow p-0">
             <div className="bg-secondary py-5">
-                <h1 className="display-1 text-light text-center fw-medium">
+                <h1 className="display-1 text-light text-center title">
                     Contactanos
                 </h1>
             </div>
@@ -32,7 +32,7 @@ function Contacto() {
                 <div className="row justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center">
                     <div className="col-12 col-md-6 col-lg-5 pt-4 pt-md-0">
                         <div className="px-1 py-4">
-                            <p className="fs-2 fw-medium text-center">
+                            <p className="fs-2 fw-bold text-center">
                                 Donde nos encontramos
                             </p>
                             <ul className="infoContacto my-4">
@@ -57,20 +57,19 @@ function Contacto() {
                             </ul>
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1060679494694!2d-65.20974192488997!3d-26.836578490026433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d3ad7f30f1d%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses!2sar!4v1712360784658!5m2!1ses!2sar"
-                                allowfullscreen=""
                                 loading="lazy"
                                 width="100%"
                                 height="250"
-                                referrerpolicy="no-referrer-when-downgrade"
+                                referrerPolicy="no-referrer-when-downgrade"
                             ></iframe>
                         </div>
                     </div>
                     <div className="col-12 col-md-6 col-lg-5 py-4">
                         <div className>
                             <p className="fs-4 mb-lg-0 text-center">
-                                ¿Tenes alguna duda?
+                                Tenes alguna duda?
                             </p>
-                            <p className="fs-2 fw-medium text-center">
+                            <p className="fs-2 fw-bold text-center">
                                 Contactanos
                             </p>
                         </div>
