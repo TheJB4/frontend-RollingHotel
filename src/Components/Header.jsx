@@ -67,7 +67,7 @@ function Header() {
                                     </NavDropdown.Item>
                                 </NavDropdown>
                                 <Link
-                                    to="/quienessomos"
+                                    to="/nosotros"
                                     className="text-decoration-none text-light"
                                 >
                                     Nosotros
@@ -79,7 +79,7 @@ function Header() {
                                     Contacto
                                 </Link>
                                 <Link
-                                    to="/Login"
+                                    to="/login"
                                     className="text-decoration-none text-light"
                                 >
                                     Login
