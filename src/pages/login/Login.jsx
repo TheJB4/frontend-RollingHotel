@@ -11,6 +11,7 @@ function Login() {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm();
 
     const onSubmit = async (data) => {
@@ -31,11 +32,17 @@ function Login() {
             });
         } */
         console.log(data);
+        Swal.fire({
+            title: "Bienvenido",
+            text: `Ingresaste correctamente`,
+            icon: "success",
+        });
+        reset();
     };
 
     return (
         <Container fluid className="grow grid px-2">
-            <Link className="float btn btn-dark" to="/">
+            <Link className="float btn btn-dark rounded-0" to="/">
                 <FaHome />
                 Inicio
             </Link>
@@ -86,7 +93,7 @@ function Login() {
                 </Button>
                 <p>
                     Sos nuevo por aca?{" "}
-                    <Link className="text-beige fw-bolder" to="/register">
+                    <Link className="text-beige fw-bolder" to="/sign-up">
                         Registrate
                     </Link>
                 </p>

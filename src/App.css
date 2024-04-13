@@ -49,6 +49,10 @@ body {
 }
 .text-beige {
     color: var(--beige) !important;
+    transition: color 0.2s ease-in;
+    &:hover {
+        color: var(--special-blue) !important;
+    }
 }
 .bg-naranja {
     background-color: var(--naranja) !important;
@@ -88,11 +92,20 @@ body {
 }
 .btn-outline-dark {
     background-color: var(--dark) !important;
-    border: 1px solid var(--special-blue) !important;
+    border: 2px solid var(--special-blue) !important;
     color: #fff !important;
     transition: all 0.2s ease-in-out;
     &:hover {
         background-color: var(--special-blue-dark) !important;
+    }
+}
+.btn-outline-naranja {
+    background-color: transparent !important;
+    border: 2px solid var(--naranja-dark) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--naranja-dark) !important;
     }
 }
 .title {
@@ -118,7 +131,7 @@ body {
 .min {
     width: 100%;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     color: #fff;
     max-width: 500px !important;

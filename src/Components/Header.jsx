@@ -80,7 +80,7 @@ function Header() {
                                 </Link>
                                 <Link
                                     to="/login"
-                                    className="text-decoration-none text-light"
+                                    className="text-decoration-none text-light btn btn-outline-naranja px-lg-4"
                                 >
                                     Login
                                 </Link>

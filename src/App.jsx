@@ -12,6 +12,7 @@ import Crear from "./pages/admin/habitacion/Crear";
 import Formulario from "./pages/admin/usuario/Formulario";
 import Footer from "./Components/Footer";
 import Login from "./pages/login/Login";
+import Signup from "./pages/login/Signup";
 import { useLocation } from "react-router-dom";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
 
     return (
         <>
-            {pathname !== "/login" && pathname !== "/register" && <Header />}
+            {pathname !== "/login" && pathname !== "/sign-up" && <Header />}
 
             <Routes>
                 <Route path="/" element={<Outlet />}></Route>
@@ -55,9 +56,10 @@ function App() {
                 <Route path="/reserva" element={<h1>Reserva</h1>}></Route>
                 <Route path="/contacto" element={<Contacto />}></Route>
                 <Route exac path="/login" element={<Login />} />
+                <Route exac path="/sign-up" element={<Signup />} />
                 <Route path="/*" element={<Error />}></Route>
             </Routes>
-            {pathname !== "/login" && pathname !== "/register" && <Footer />}
+            {pathname !== "/login" && pathname !== "/sign-up" && <Footer />}
         </>
     );
 }
