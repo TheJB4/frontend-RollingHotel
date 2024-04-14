@@ -7,6 +7,9 @@ import Error from "./pages/Error";
 import Home from "./pages/Home";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import Nosotros from "./pages/Nosotros";
+import Habitaciones from "./pages/Habitaciones";
+import Galeria from "./pages/Galeria";
 import Login from "./pages/login/Login";
 import Signup from "./pages/login/Signup";
 import AdminRoutes from "./routes/AdminRoutes";
@@ -43,8 +46,9 @@ function App() {
                 />
 
                 {/*-------------------------------------------------------*/}
-                <Route path="/novedades" element={<h1>Novedades</h1>}></Route>
-                <Route path="/reserva" element={<h1>Reserva</h1>}></Route>
+                <Route path="/habitaciones" element={<Habitaciones />}></Route>
+                <Route exac path="/nosotros" element={<Nosotros />}></Route>
+                <Route exac path="/galeria" element={<Galeria />}></Route>
                 <Route
                     path="/habitaciones"
                     element={<h1>Habitaciones</h1>}
