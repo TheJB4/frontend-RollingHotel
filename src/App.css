@@ -3,11 +3,12 @@
     --naranja-light: #fd53449f;
     --naranja-dark: #af3a2f;
     --blue-grey: #e4e2fd;
-    /* --blue-grey: #def; */
+    --blue-grey-transparent: #e4e2fd37;
     --dark: #1c1c21;
     --beige: #fcf0ed;
     --special-blue: #534ff2;
     --special-blue-dark: #3c3ab4;
+    --light-red: #f17676;
 }
 #root {
     min-height: 100vh;
@@ -46,14 +47,31 @@ body {
 .text-naranja {
     color: var(--naranja) !important;
 }
+.text-beige {
+    color: var(--beige) !important;
+    transition: color 0.2s ease-in;
+    &:hover {
+        color: var(--special-blue) !important;
+    }
+}
 .bg-naranja {
     background-color: var(--naranja) !important;
+}
+.bg-beige {
+    background-color: var(--beige) !important;
 }
 .bg-blue-grey {
     background-color: var(--blue-grey) !important;
 }
 .bg-naranja-light {
     background-color: var(--naranja-light) !important;
+}
+.bg-light-red {
+    border: 2px solid red;
+    background-color: var(--naranja-light) !important;
+}
+.text-dark-red {
+    color: #701414 !important;
 }
 .btn-naranja {
     background-color: var(--naranja) !important;
@@ -71,9 +89,80 @@ body {
         background-color: var(--special-blue-dark) !important;
     }
 }
+.btn-dark {
+    background-color: var(--dark) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--special-blue-dark) !important;
+    }
+}
+.btn-outline-dark {
+    background-color: var(--dark) !important;
+    border: 2px solid var(--special-blue) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--special-blue-dark) !important;
+    }
+}
+.btn-outline-naranja {
+    background-color: transparent !important;
+    border: 2px solid var(--naranja-dark) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--naranja-dark) !important;
+    }
+}
 .title {
     font-family: "Mont heavy";
 }
 .w-250 {
     width: 250px !important;
+}
+.float {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+.grid {
+    display: flex;
+    align-items: center;
+    background-image: url("./assets/hotel.jpeg");
+    background-size: cover;
+}
+.text-light-red {
+    color: var(--light-red) !important;
+}
+.min {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    max-width: 500px !important;
+}
+.min input {
+    background-color: transparent !important;
+    color: #fff !important;
+    font-weight: bold;
+    &::placeholder {
+        color: #ffffff94 !important;
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.25rem var(--special-blue) !important;
+    }
+}
+@media screen and (min-width: 700px) {
+    .grid {
+        background-image: url("./assets/hotel2.jpeg");
+    }
+}
+@media screen and (min-width: 700px) {
+    .float {
+        position: absolute;
+        top: 32px;
+        left: 24px;
+    }
 }

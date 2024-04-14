@@ -23,10 +23,8 @@ function Contacto() {
 
     return (
         <Container fluid className="grow p-0">
-            <div className="bg-secondary py-5">
-                <h1 className="display-1 text-light text-center title">
-                    Contactanos
-                </h1>
+            <div className="bg-beige py-5">
+                <h1 className="display-1 text-center title">Contactanos</h1>
             </div>
             <div className="container-fluid flex-column px-sm-5 py-sm-2 py-md-5 px-md-5 py-lg-5">
                 <div className="row justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center">
@@ -38,20 +36,27 @@ function Contacto() {
                             <ul className="infoContacto my-4">
                                 <li>
                                     <p>
-                                        <FaLocationDot />
+                                        <span>
+                                            <FaLocationDot />
+                                        </span>{" "}
                                         Gral. Paz 576, T4000 San Miguel de
                                         Tucumán, Tucumán
                                     </p>
                                 </li>
                                 <li>
                                     <p>
-                                        <FaPhone />
+                                        <span>
+                                            <FaPhone />
+                                        </span>{" "}
                                         3815572365
                                     </p>
                                 </li>
                                 <li>
                                     <p>
-                                        <MdEmail /> rolling-hotel@gmail.com
+                                        <span>
+                                            <MdEmail />
+                                        </span>{" "}
+                                        rolling-hotel@gmail.com
                                     </p>
                                 </li>
                             </ul>
