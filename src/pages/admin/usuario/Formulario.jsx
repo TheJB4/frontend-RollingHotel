@@ -44,7 +44,7 @@ function Formulario() {
                 text: "El usuario fue actualizado con exito!",
                 icon: "success",
             });
-            navigate("/admin/usuario");
+            navigate("/panel/usuario");
         }
     };
 

@@ -10,7 +10,7 @@ function Options({ type, borrar, id }) {
                 <FaTrashAlt />
             </Button>
             <Link
-                to={`/admin/${type}/actualizar/${id}`}
+                to={`/panel/${type}/actualizar/${id}`}
                 className="btn btn-secondary border"
             >
                 <FiEdit />
