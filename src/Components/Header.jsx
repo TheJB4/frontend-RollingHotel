@@ -81,18 +81,19 @@ function Header({ loggedUser, setUserLogged, path }) {
                                             </NavDropdown.Item>
                                             <NavDropdown.Item
                                                 as={Link}
-                                                to="/novedades"
+                                                to="/galeria"
                                                 className="text-decoration-none text-light"
                                             >
-                                                Novedades
+                                                Galeria
+                                            </NavDropdown.Item>
+                                            <NavDropdown.Item
+                                                as={Link}
+                                                to="/nosotros"
+                                                className="text-decoration-none text-light"
+                                            >
+                                                Nosotros
                                             </NavDropdown.Item>
                                         </NavDropdown>
-                                        <Link
-                                            to="/nosotros"
-                                            className="text-decoration-none text-light"
-                                        >
-                                            Nosotros
-                                        </Link>
                                         <Link
                                             to="/contacto"
                                             className="text-decoration-none text-light"

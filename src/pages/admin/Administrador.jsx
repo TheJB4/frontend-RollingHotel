@@ -17,34 +17,34 @@ function Administrador() {
                 <h2 className="fw-bold display-4 mb-4"> Hola {name}!</h2>
                 <div className="container text-center py-2">
                     <div className="py-2 row gap-2 justify-content-center">
-                        <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-secondary d-flex flex-column justify-content-center align-items-center p-2 text-light">
+                        <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-oscuro d-flex flex-column justify-content-center align-items-center p-2 text-light">
                             <p className="fw-bold fs-3 text-decoration-underline">
                                 Usuarios
                             </p>
                             <Link
-                                className="btn btn-outline-light fw-bold px-4"
+                                className="btn btn-outline-light fw-bold px-4 rounded-0"
                                 to="/admin/usuario"
                             >
                                 Ver mas...
                             </Link>
                         </div>
-                        <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-primary d-flex flex-column justify-content-center align-items-center p-2 text-light">
+                        <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-special-blue d-flex flex-column justify-content-center align-items-center p-2 text-light">
                             <p className="fw-bold fs-3 text-decoration-underline">
                                 Habitaciones
                             </p>
                             <Link
-                                className="btn btn-outline-light fw-bold px-4"
+                                className="btn btn-outline-light fw-bold px-4 rounded-0"
                                 to="/admin/habitacion"
                             >
                                 Ver mas...
                             </Link>
                         </div>
-                        <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-info d-flex flex-column align-items-center p-2 text-light">
+                        <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-red d-flex flex-column align-items-center p-2 text-light">
                             <p className="fw-bold fs-3 text-decoration-underline">
                                 Reservas
                             </p>
                             <Link
-                                className="btn btn-outline-light fw-bold px-4"
+                                className="btn btn-outline-light fw-bold px-4 rounded-0"
                                 to="/admin/reserva"
                             >
                                 Ver mas...
