@@ -1,42 +1,198 @@
+:root {
+    --naranja: #fd5444;
+    --naranja-light: #fd53449f;
+    --naranja-dark: #af3a2f;
+    --blue-grey: #e4e2fd;
+    --blue-grey-transparent: #e4e2fd37;
+    --dark: #1c1c21;
+    --beige: #fcf0ed;
+    --special-blue: #534ff2;
+    --special-blue-dark: #3c3ab4;
+    --light-red: #f17676;
+}
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+@font-face {
+    font-family: "Mont light";
+    src: url("./assets/fonts/Mont-ExtraLightDEMO.otf");
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+@font-face {
+    font-family: "Mont heavy";
+    src: url("./assets/fonts/Mont-HeavyDEMO.otf");
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+    font-family: "Mont light";
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grow {
+    flex-grow: 1;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.max {
+    width: 100%;
+    height: 95vh;
 }
-
-.card {
-  padding: 2em;
+.infoContacto {
+    list-style: none;
 }
-
-.read-the-docs {
-  color: #888;
+.subrayado {
+    border-bottom: 3px solid #e7b315;
+}
+.fs-20 {
+    font-size: 20px;
+    line-height: 26px;
+}
+.fs-32 {
+    font-size: 48px;
+    line-height: 48px;
+}
+.text-naranja {
+    color: var(--naranja) !important;
+}
+.text-beige {
+    color: var(--beige) !important;
+    transition: color 0.2s ease-in;
+    &:hover {
+        color: var(--special-blue) !important;
+    }
+}
+.bg-naranja {
+    background-color: var(--naranja) !important;
+}
+.bg-beige {
+    background-color: var(--beige) !important;
+}
+.bg-blue-grey {
+    background-color: var(--blue-grey) !important;
+}
+.bg-naranja-light {
+    background-color: var(--naranja-light) !important;
+}
+.bg-light-red {
+    border: 2px solid red;
+    background-color: var(--naranja-light) !important;
+}
+.bg-red {
+    background-color: var(--naranja-dark) !important;
+}
+.bg-oscuro {
+    background-color: var(--dark) !important;
+}
+.bg-special-blue {
+    background-color: var(--special-blue-dark) !important;
+}
+.text-dark-red {
+    color: #701414 !important;
+}
+.btn-naranja {
+    background-color: var(--naranja) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--naranja-dark) !important;
+    }
+}
+.btn-close {
+    background-color: var(--special-blue) !important;
+    border-radius: 0 !important;
+}
+.btn-blue {
+    background-color: var(--special-blue) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--special-blue-dark) !important;
+    }
+}
+.btn-dark {
+    background-color: var(--dark) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--special-blue-dark) !important;
+    }
+}
+.btn-outline-dark {
+    background-color: var(--dark) !important;
+    border: 2px solid var(--special-blue) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--special-blue-dark) !important;
+    }
+}
+.btn-outline-blue {
+    background-color: transparent !important;
+    border: 2px solid var(--special-blue) !important;
+    color: var(--special-blue) !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--special-blue-dark) !important;
+        color: #fff !important;
+    }
+}
+.btn-outline-naranja {
+    background-color: transparent !important;
+    border: 2px solid var(--naranja-dark) !important;
+    color: #fff !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--naranja-dark) !important;
+    }
+}
+.title {
+    font-family: "Mont heavy";
+}
+.w-250 {
+    width: 250px !important;
+}
+.float {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+.grid {
+    display: flex;
+    align-items: center;
+    background-image: url("./assets/hotel.jpeg");
+    background-size: cover;
+}
+.text-light-red {
+    color: var(--light-red) !important;
+}
+.min {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    max-width: 500px !important;
+}
+.min input {
+    background-color: transparent !important;
+    color: #fff !important;
+    font-weight: bold;
+    &::placeholder {
+        color: #ffffff94 !important;
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.25rem var(--special-blue) !important;
+    }
+}
+@media screen and (min-width: 768px) {
+    .grid {
+        background-image: url("./assets/hotel2.jpeg");
+    }
+    .shadow-amarillo {
+        box-shadow: 38px -35px 0px -10px var(--naranja-light);
+    }
+}
+@media screen and (min-width: 700px) {
+    .float {
+        position: absolute;
+        top: 32px;
+        left: 24px;
+    }
 }

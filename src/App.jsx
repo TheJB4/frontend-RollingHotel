@@ -1,35 +1,70 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Outlet, Route, Routes, useLocation } from "react-router-dom";
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Contacto from "./pages/Contacto";
+import Error from "./pages/Error";
+import Home from "./pages/Home";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Nosotros from "./pages/Nosotros";
+import Habitaciones from "./pages/Habitaciones";
+import Galeria from "./pages/Galeria";
+import Login from "./pages/login/Login";
+import Signup from "./pages/login/Signup";
+import AdminRoutes from "./routes/AdminRoutes";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const { pathname } = useLocation();
+    const usuario = JSON.parse(sessionStorage.getItem("usuario")) || {};
+    const [loggedUser, setUserLogged] = useState(usuario);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <>
+            {pathname !== "/login" && pathname !== "/sign-up" && (
+                <Header
+                    loggedUser={loggedUser}
+                    setUserLogged={setUserLogged}
+                    path={pathname}
+                />
+            )}
+
+            <Routes>
+                <Route path="/" element={<Outlet />}></Route>
+                <Route index element={<Home />}></Route>
+
+                {/*-------------------ADMINISTRADOR----------------------*/}
+                <Route
+                    exact
+                    path="/admin/*"
+                    element={
+                        <ProtectedRoutes>
+                            <AdminRoutes />
+                        </ProtectedRoutes>
+                    }
+                />
+
+                {/*-------------------------------------------------------*/}
+                <Route path="/habitaciones" element={<Habitaciones />}></Route>
+                <Route exac path="/nosotros" element={<Nosotros />}></Route>
+                <Route exac path="/galeria" element={<Galeria />}></Route>
+                <Route
+                    path="/habitaciones"
+                    element={<h1>Habitaciones</h1>}
+                ></Route>
+                <Route path="/contacto" element={<Contacto />}></Route>
+                <Route
+                    exac
+                    path="/login"
+                    element={<Login setUserLogged={setUserLogged} />}
+                />
+                <Route exac path="/sign-up" element={<Signup />} />
+                <Route path="/*" element={<Error />}></Route>
+            </Routes>
+            {pathname !== "/login" && pathname !== "/sign-up" && <Footer />}
+        </>
+    );
 }
 
-export default App
+export default App;
