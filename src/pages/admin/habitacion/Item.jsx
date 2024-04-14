@@ -67,7 +67,7 @@ function Item({ habitacion, setHabitaciones }) {
                 const res = await deleteHabitacion(_id);
                 if (res.status === 200) {
                     Swal.fire({
-                        title: "Receta eliminada!",
+                        title: "Habitacion eliminada!",
                         text: `La habitacion "${numero}" fue eliminada correctamente`,
                         icon: "success",
                     });

@@ -32,8 +32,9 @@ function Login({ setUserLogged }) {
                 "usuario",
                 JSON.stringify({
                     email: user.email,
-                    token: user.token,
                     nombre: user.nombre,
+                    esAdmin: user.esAdmin,
+                    token: user.token,
                 })
             );
             setUserLogged(user);
@@ -45,7 +46,7 @@ function Login({ setUserLogged }) {
                 iconColor: "#534ff2",
                 color: "#fff",
             });
-            navigate("/admin");
+            navigate("/panel");
         }
         reset();
     };
