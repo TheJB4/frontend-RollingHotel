@@ -18,7 +18,7 @@ function Item({ usuario, setUsuarios }) {
                 const res = await deleteUsuario(_id);
                 if (res.status === 200) {
                     Swal.fire({
-                        title: "Usuario!",
+                        title: "Usuario eliminado!",
                         text: `El usuario "${nombre} ${apellido}" fue eliminado correctamente`,
                         icon: "success",
                     });
