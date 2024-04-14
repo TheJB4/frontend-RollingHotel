@@ -84,7 +84,7 @@ function Login({ setUserLogged }) {
                         })}
                     ></Form.Control>
                     {errors.email && (
-                        <Form.Text className="text-dark-red fw-bold">
+                        <Form.Text className="text-light-red fw-bolder">
                             {errors.email.message}
                         </Form.Text>
                     )}
@@ -102,7 +102,7 @@ function Login({ setUserLogged }) {
                         })}
                     ></Form.Control>
                     {errors.password && (
-                        <Form.Text className="text-dark-red fw-bold text-end">
+                        <Form.Text className="text-light-red fw-bolder">
                             {errors.password.message}
                         </Form.Text>
                     )}

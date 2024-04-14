@@ -1,46 +1,62 @@
-import { Container, Form, Button } from "react-bootstrap";
+import {
+    Container,
+    Form,
+    Button,
+    Toast,
+    ToastContainer,
+} from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaHome } from "react-icons/fa";
+import { registrarUsuario } from "../../helpers/queries.js";
 
 function Signup() {
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState("");
     const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
-        reset,
     } = useForm();
 
     const onSubmit = async (data) => {
-        /* const res = await login(data);
-        if (res) {
-            setUserLogged(data.email);
-            Swal.fire({
-                title: "Bienvenido",
-                text: `Ingresaste correctamente`,
-                icon: "success",
-            });
-            navigate("/administrador");
+        data.activo = true;
+        data.esAdmin = false;
+        const res = await registrarUsuario(data);
+        if (!res.ok) {
+            setShow(true);
+            const respuesta = await res.json();
+            setMessage(respuesta.message);
         } else {
             Swal.fire({
-                title: "Error!",
-                text: "Usuario no registrado",
-                icon: "error",
+                title: "Registro completado",
+                icon: "success",
+                background: "#1c1c21",
+                iconColor: "#534ff2",
+                color: "#fff",
             });
-        } */
-        console.log(data);
-        Swal.fire({
-            title: "Bienvenido",
-            text: `Ingresaste correctamente`,
-            icon: "success",
-        });
-        reset();
+            navigate("/");
+        }
     };
 
     return (
         <Container fluid className="grow grid px-2">
+            <ToastContainer position="top-center" className="mt-1">
+                <Toast
+                    onClose={() => setShow(false)}
+                    show={show}
+                    delay={3000}
+                    autohide
+                    className="bg-light-red"
+                >
+                    <Toast.Body className="fw-bold text-light text-center">
+                        {message}
+                    </Toast.Body>
+                </Toast>
+            </ToastContainer>
             <Link className="float btn btn-dark rounded-0" to="/">
                 <FaHome />
                 Inicio
@@ -70,7 +86,7 @@ function Signup() {
                         })}
                     ></Form.Control>
                     {errors.nombre && (
-                        <Form.Text className="text-light-red fw-bold">
+                        <Form.Text className="text-light-red fw-bolder">
                             {errors.nombre.message}
                         </Form.Text>
                     )}
@@ -94,7 +110,7 @@ function Signup() {
                         })}
                     ></Form.Control>
                     {errors.apellido && (
-                        <Form.Text className="text-light-red fw-bold">
+                        <Form.Text className="text-light-red fw-bolder">
                             {errors.apellido.message}
                         </Form.Text>
                     )}
@@ -117,7 +133,7 @@ function Signup() {
                         })}
                     />
                     {errors.telefono && (
-                        <Form.Text className="text-light-red fw-bold">
+                        <Form.Text className="text-light-red fw-bolder">
                             {errors.telefono.message}
                         </Form.Text>
                     )}
@@ -131,7 +147,7 @@ function Signup() {
                         })}
                     ></Form.Control>
                     {errors.email && (
-                        <Form.Text className="text-light-red fw-bold">
+                        <Form.Text className="text-light-red fw-bolder">
                             {errors.email.message}
                         </Form.Text>
                     )}
@@ -145,6 +161,15 @@ function Signup() {
                             minLength: {
                                 value: 8,
                                 message: "Ingrese como minimo 8 caracteres",
+                            },
+                            maxLength: {
+                                value: 16,
+                                message: "ingrese un maximo de 16 caracteres",
+                            },
+                            pattern: {
+                                value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*.-]).{8,16}$/,
+                                message:
+                                    "la contraseña debe tener al menos una letra minuscula, una letra mayuscula, un numero y un caracter especial",
                             },
                         })}
                     ></Form.Control>
