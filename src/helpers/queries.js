@@ -116,3 +116,18 @@ export const putUsuario = async (data, id) => {
         console.error(error);
     }
 };
+
+export const registrarUsuario = async (data) => {
+    try {
+        const res = await fetch(api_usuarios, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        return res;
+    } catch (error) {
+        console.error(error);
+    }
+};
