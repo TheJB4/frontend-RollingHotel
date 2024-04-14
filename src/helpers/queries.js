@@ -66,6 +66,9 @@ export const deleteHabitacion = async (id) => {
     try {
         const res = await fetch(`${api_habitaciones}/${id}`, {
             method: "DELETE",
+            headers: {
+                "x-token": JSON.parse(sessionStorage.getItem("usuario")).token,
+            },
         });
         return res;
     } catch (error) {
