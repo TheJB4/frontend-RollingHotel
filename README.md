@@ -1,5 +1,3 @@
-![Texto alternativo](/client/public/hotel.svg)
-
 # Rolling Hotel
 
 ### Descripcion
