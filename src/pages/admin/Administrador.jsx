@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { RiAdminLine } from "react-icons/ri";
 
 function Administrador() {
+    const name = JSON.parse(sessionStorage.getItem("usuario")).nombre;
     return (
         <div className="grow container-fluid px-0">
             <div className="bg-naranja py-5">
@@ -13,7 +14,7 @@ function Administrador() {
                 </h1>
             </div>
             <div className="py-4 px-1">
-                <h2 className="fw-bold display-4 mb-4"> Hola admin!</h2>
+                <h2 className="fw-bold display-4 mb-4"> Hola {name}!</h2>
                 <div className="container text-center py-2">
                     <div className="py-2 row gap-2 justify-content-center">
                         <div className="col-12 col-md-4 col-lg-3 px-2 rounded py-4 bg-secondary d-flex flex-column justify-content-center align-items-center p-2 text-light">

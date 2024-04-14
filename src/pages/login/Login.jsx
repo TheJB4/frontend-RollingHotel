@@ -1,11 +1,19 @@
-import { Container, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import {
+    Container,
+    Form,
+    Button,
+    Toast,
+    ToastContainer,
+} from "react-bootstrap";
+import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import { FaHome } from "react-icons/fa";
+import { login } from "../../helpers/auth";
 
-function Login() {
+function Login({ setUserLogged }) {
+    const [show, setShow] = useState(false);
     const navigate = useNavigate();
     const {
         register,
@@ -15,33 +23,48 @@ function Login() {
     } = useForm();
 
     const onSubmit = async (data) => {
-        /* const res = await login(data);
-        if (res) {
-            setUserLogged(data.email);
+        const res = await login(data);
+        if (!res.ok) {
+            setShow(true);
+        } else {
+            const user = await res.json();
+            sessionStorage.setItem(
+                "usuario",
+                JSON.stringify({
+                    email: user.email,
+                    token: user.token,
+                    nombre: user.nombre,
+                })
+            );
+            setUserLogged(user);
             Swal.fire({
                 title: "Bienvenido",
                 text: `Ingresaste correctamente`,
                 icon: "success",
+                background: "#1c1c21",
+                iconColor: "#534ff2",
+                color: "#fff",
             });
-            navigate("/administrador");
-        } else {
-            Swal.fire({
-                title: "Error!",
-                text: "Usuario no registrado",
-                icon: "error",
-            });
-        } */
-        console.log(data);
-        Swal.fire({
-            title: "Bienvenido",
-            text: `Ingresaste correctamente`,
-            icon: "success",
-        });
+            navigate("/admin");
+        }
         reset();
     };
 
     return (
         <Container fluid className="grow grid px-2">
+            <ToastContainer position="top-center" className="mt-1">
+                <Toast
+                    onClose={() => setShow(false)}
+                    show={show}
+                    delay={3000}
+                    autohide
+                    className="bg-light-red"
+                >
+                    <Toast.Body className="fw-bold text-light text-center">
+                        Usuario o contraseña incorrectos
+                    </Toast.Body>
+                </Toast>
+            </ToastContainer>
             <Link className="float btn btn-dark rounded-0" to="/">
                 <FaHome />
                 Inicio
@@ -61,7 +84,7 @@ function Login() {
                         })}
                     ></Form.Control>
                     {errors.email && (
-                        <Form.Text className="text-light-red fw-bold">
+                        <Form.Text className="text-dark-red fw-bold">
                             {errors.email.message}
                         </Form.Text>
                     )}
@@ -79,7 +102,7 @@ function Login() {
                         })}
                     ></Form.Control>
                     {errors.password && (
-                        <Form.Text className="text-light-red fw-bold text-end">
+                        <Form.Text className="text-dark-red fw-bold text-end">
                             {errors.password.message}
                         </Form.Text>
                     )}

@@ -66,6 +66,13 @@ body {
 .bg-naranja-light {
     background-color: var(--naranja-light) !important;
 }
+.bg-light-red {
+    border: 2px solid red;
+    background-color: var(--naranja-light) !important;
+}
+.text-dark-red {
+    color: #701414 !important;
+}
 .btn-naranja {
     background-color: var(--naranja) !important;
     color: #fff !important;

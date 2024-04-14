@@ -36,6 +36,7 @@ export const postHabitacion = async (data) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "x-token": JSON.parse(sessionStorage.getItem("usuario")).token,
             },
             body: JSON.stringify(data),
         });
@@ -51,6 +52,7 @@ export const putHabitacion = async (data, id) => {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
+                "x-token": JSON.parse(sessionStorage.getItem("usuario")).token,
             },
             body: JSON.stringify(data),
         });
