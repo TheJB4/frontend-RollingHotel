@@ -64,7 +64,7 @@ function Header({ loggedUser, setUserLogged, path }) {
                                 >
                                     Inicio
                                 </Link>
-                                {path !== "/admin" ? (
+                                {path !== "/panel" ? (
                                     <>
                                         <NavDropdown
                                             id="dropdown-informacion"
@@ -109,10 +109,10 @@ function Header({ loggedUser, setUserLogged, path }) {
                                             </Link>
                                         ) : (
                                             <Link
-                                                to="/admin"
+                                                to="/panel"
                                                 className="text-decoration-none btn btn-blue rounded-0 px-4"
                                             >
-                                                admin panel
+                                                Dashboard
                                             </Link>
                                         )}
                                     </>

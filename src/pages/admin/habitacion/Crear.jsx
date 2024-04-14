@@ -53,7 +53,7 @@ function Crear({ title, editar }) {
                     text: "La habitacion fue actualizada con exito!",
                     icon: "success",
                 });
-                navigate("/admin/habitacion");
+                navigate("/panel/habitacion");
             }
         } else {
             const res = await postHabitacion(data);
@@ -71,7 +71,7 @@ function Crear({ title, editar }) {
                     text: "La habitacion fue cargada con exito!",
                     icon: "success",
                 });
-                navigate("/admin/habitacion");
+                navigate("/panel/habitacion");
             }
         }
     };

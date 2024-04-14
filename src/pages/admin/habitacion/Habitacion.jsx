@@ -31,7 +31,7 @@ function Habitacion() {
             <div className="px-1 py-4 px-md-4">
                 <div className="d-flex justify-content-center justify-content-md-start align-items-center">
                     <Link
-                        to="/admin/habitacion/alta"
+                        to="/panel/habitacion/alta"
                         className="btn btn-primary fw-bold"
                     >
                         <span>

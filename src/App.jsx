@@ -14,6 +14,7 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/login/Signup";
 import AdminRoutes from "./routes/AdminRoutes";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
+import ClientRoutes from "./routes/ClientRoutes";
 
 function App() {
     const { pathname } = useLocation();
@@ -37,22 +38,21 @@ function App() {
                 {/*-------------------ADMINISTRADOR----------------------*/}
                 <Route
                     exact
-                    path="/admin/*"
+                    path="/panel/*"
                     element={
                         <ProtectedRoutes>
-                            <AdminRoutes />
+                            {usuario.esAdmin ? (
+                                <AdminRoutes />
+                            ) : (
+                                <ClientRoutes />
+                            )}
                         </ProtectedRoutes>
                     }
                 />
-
                 {/*-------------------------------------------------------*/}
                 <Route path="/habitaciones" element={<Habitaciones />}></Route>
                 <Route exac path="/nosotros" element={<Nosotros />}></Route>
                 <Route exac path="/galeria" element={<Galeria />}></Route>
-                <Route
-                    path="/habitaciones"
-                    element={<h1>Habitaciones</h1>}
-                ></Route>
                 <Route path="/contacto" element={<Contacto />}></Route>
                 <Route
                     exac

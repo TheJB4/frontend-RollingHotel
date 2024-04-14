@@ -23,7 +23,7 @@ function Administrador() {
                             </p>
                             <Link
                                 className="btn btn-outline-light fw-bold px-4 rounded-0"
-                                to="/admin/usuario"
+                                to="/panel/usuario"
                             >
                                 Ver mas...
                             </Link>
@@ -34,7 +34,7 @@ function Administrador() {
                             </p>
                             <Link
                                 className="btn btn-outline-light fw-bold px-4 rounded-0"
-                                to="/admin/habitacion"
+                                to="/panel/habitacion"
                             >
                                 Ver mas...
                             </Link>
@@ -45,7 +45,7 @@ function Administrador() {
                             </p>
                             <Link
                                 className="btn btn-outline-light fw-bold px-4 rounded-0"
-                                to="/admin/reserva"
+                                to="/panel/reserva"
                             >
                                 Ver mas...
                             </Link>
