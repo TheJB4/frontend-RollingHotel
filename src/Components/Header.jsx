@@ -84,7 +84,7 @@ function Header({ loggedUser, setUserLogged, path }) {
                                                 to="/galeria"
                                                 className="text-decoration-none text-light"
                                             >
-                                                Galeria
+                                                Imagenes
                                             </NavDropdown.Item>
                                             <NavDropdown.Item
                                                 as={Link}
