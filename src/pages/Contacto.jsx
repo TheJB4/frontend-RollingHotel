@@ -158,7 +158,11 @@ function Contacto() {
                                     </Form.Text>
                                 )}
                             </Form.Group>
-                            <Button variant="secondary" type="submit">
+                            <Button
+                                variant=""
+                                className="btn btn-dark rounded-0"
+                                type="submit"
+                            >
                                 Contactanos
                             </Button>
                         </Form>
