@@ -72,6 +72,9 @@ body {
 .bg-beige {
     background-color: var(--beige) !important;
 }
+.bg-galeria {
+    background-image: url("./assets/bg-galeria.svg") !important;
+}
 .bg-blue-grey {
     background-color: var(--blue-grey) !important;
 }
@@ -220,6 +223,12 @@ body {
     .h-500 {
         width: 100%;
         height: 500px;
+    }
+    .img-hover {
+        transition: all 0.2s ease-out;
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 }
 @media screen and (min-width: 700px) {
