@@ -6,11 +6,18 @@ import Swal from "sweetalert2";
 
 function Habitaciones() {
     const [habitaciones, setHabitaciones] = useState([]);
+
+    function comprobarDisponible(array) {
+        const disponible = array.filter((item) => item.disponible === true);
+        return disponible;
+    }
+
     const obtenerHabitaciones = async () => {
         const res = await getHabitaciones();
         if (res.ok) {
             const data = await res.json();
-            setHabitaciones(data);
+            const disponible = comprobarDisponible(data);
+            setHabitaciones(disponible);
         } else {
             Swal.fire({
                 title: "ERROR!",
