@@ -48,6 +48,10 @@ body {
     font-size: 48px;
     line-height: 48px;
 }
+.fs-72 {
+    font-size: 72px;
+    line-height: 48px;
+}
 .text-naranja {
     color: var(--naranja) !important;
 }
@@ -68,8 +72,14 @@ body {
 .bg-beige {
     background-color: var(--beige) !important;
 }
+.bg-galeria {
+    background-image: url("./assets/bg-galeria.svg") !important;
+}
 .bg-blue-grey {
     background-color: var(--blue-grey) !important;
+}
+.bg-blue-transparent {
+    background-color: var(--blue-grey-transparent) !important;
 }
 .bg-naranja-light {
     background-color: var(--naranja-light) !important;
@@ -114,6 +124,15 @@ body {
         background-color: var(--special-blue-dark) !important;
     }
 }
+.btn-beige {
+    background-color: var(--beige) !important;
+    color: #000 !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--dark) !important;
+        color: var(--beige) !important;
+    }
+}
 .btn-dark {
     background-color: var(--dark) !important;
     color: #fff !important;
@@ -139,6 +158,20 @@ body {
     &:hover {
         background-color: var(--special-blue-dark) !important;
         color: #fff !important;
+    }
+}
+.max-h {
+    max-height: 500px;
+}
+.about {
+    width: 50% !important;
+}
+@media screen and (min-width: 992px) {
+    .arrow {
+        width: 40% !important;
+    }
+    .about {
+        width: 60% !important;
     }
 }
 .btn-outline-naranja {
@@ -198,6 +231,27 @@ body {
     }
     .shadow-amarillo {
         box-shadow: 38px -35px 0px -10px var(--naranja-light);
+    }
+    .shadow-beige {
+        box-shadow: -38px -35px 0px -10px var(--beige);
+    }
+    .h-500 {
+        width: 100%;
+        height: 500px;
+    }
+    .h-350 {
+        width: 400px;
+        height: 100%;
+    }
+    .w-500 {
+        width: 500px;
+        height: 100%;
+    }
+    .img-hover {
+        transition: all 0.2s ease-out;
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 }
 @media screen and (min-width: 700px) {

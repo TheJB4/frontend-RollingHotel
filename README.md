@@ -1,8 +1,18 @@
-# React + Vite
+# Rolling Hotel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Descripcion
 
-Currently, two official plugins are available:
+Proyecto para gestionar informacion de Rolling Hotel. Visualizar informacion sobre el hotel, contactar para mas informacion,
+gestionar reservas, usuarios, habitaciones.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Instalacion
+
+1. Clona el proyecto
+2. Dirigete a la carpeta `/frontend-RollingHotel`
+3. Instala las dependencias con `npm install`
+4. Crea un archivo `.env` en la raiz del proyecto y coloca tus apis del servidor
+5. Corre el proyecto con `npm run dev`
+
+### Demo
+
+"LINK"
