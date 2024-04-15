@@ -78,6 +78,9 @@ body {
 .bg-blue-grey {
     background-color: var(--blue-grey) !important;
 }
+.bg-blue-transparent {
+    background-color: var(--blue-grey-transparent) !important;
+}
 .bg-naranja-light {
     background-color: var(--naranja-light) !important;
 }
@@ -119,6 +122,15 @@ body {
     transition: all 0.2s ease-in-out;
     &:hover {
         background-color: var(--special-blue-dark) !important;
+    }
+}
+.btn-beige {
+    background-color: var(--beige) !important;
+    color: #000 !important;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background-color: var(--dark) !important;
+        color: var(--beige) !important;
     }
 }
 .btn-dark {
@@ -220,9 +232,20 @@ body {
     .shadow-amarillo {
         box-shadow: 38px -35px 0px -10px var(--naranja-light);
     }
+    .shadow-beige {
+        box-shadow: -38px -35px 0px -10px var(--beige);
+    }
     .h-500 {
         width: 100%;
         height: 500px;
+    }
+    .h-350 {
+        width: 400px;
+        height: 100%;
+    }
+    .w-500 {
+        width: 500px;
+        height: 100%;
     }
     .img-hover {
         transition: all 0.2s ease-out;
