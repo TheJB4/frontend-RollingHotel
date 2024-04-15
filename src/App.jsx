@@ -15,6 +15,7 @@ import Signup from "./pages/login/Signup";
 import AdminRoutes from "./routes/AdminRoutes";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import ClientRoutes from "./routes/ClientRoutes";
+import Detalle from "./pages/Detalle";
 
 function App() {
     const { pathname } = useLocation();
@@ -51,6 +52,7 @@ function App() {
                 />
                 {/*-------------------------------------------------------*/}
                 <Route path="/habitaciones" element={<Habitaciones />}></Route>
+                <Route path="/habitaciones/:id" element={<Detalle />}></Route>
                 <Route exac path="/nosotros" element={<Nosotros />}></Route>
                 <Route exac path="/galeria" element={<Galeria />}></Route>
                 <Route path="/contacto" element={<Contacto />}></Route>
