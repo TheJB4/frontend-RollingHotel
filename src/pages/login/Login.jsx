@@ -14,6 +14,7 @@ import { login } from "../../helpers/auth";
 
 function Login({ setUserLogged }) {
     const [show, setShow] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
     const {
         register,
@@ -25,6 +26,8 @@ function Login({ setUserLogged }) {
     const onSubmit = async (data) => {
         const res = await login(data);
         if (!res.ok) {
+            const respuesta = await res.json();
+            setErrorMessage(respuesta.message);
             setShow(true);
         } else {
             const user = await res.json();
@@ -62,7 +65,7 @@ function Login({ setUserLogged }) {
                     className="bg-light-red"
                 >
                     <Toast.Body className="fw-bold text-light text-center">
-                        Usuario o contraseña incorrectos
+                        {errorMessage}
                     </Toast.Body>
                 </Toast>
             </ToastContainer>

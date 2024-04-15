@@ -98,6 +98,9 @@ export const deleteUsuario = async (id) => {
     try {
         const res = await fetch(`${api_usuarios}/${id}`, {
             method: "DELETE",
+            headers: {
+                "x-token": JSON.parse(sessionStorage.getItem("usuario")).token,
+            },
         });
         return res;
     } catch (error) {
@@ -111,6 +114,7 @@ export const putUsuario = async (data, id) => {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
+                "x-token": JSON.parse(sessionStorage.getItem("usuario")).token,
             },
             body: JSON.stringify(data),
         });
@@ -126,6 +130,7 @@ export const registrarUsuario = async (data) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                "x-token": JSON.parse(sessionStorage.getItem("usuario")).token,
             },
             body: JSON.stringify(data),
         });
