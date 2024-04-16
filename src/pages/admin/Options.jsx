@@ -9,12 +9,14 @@ function Options({ type, borrar, id }) {
             <Button variant="danger" onClick={borrar}>
                 <FaTrashAlt />
             </Button>
-            <Link
-                to={`/panel/${type}/actualizar/${id}`}
-                className="btn btn-secondary border"
-            >
-                <FiEdit />
-            </Link>
+            {type !== "reserva" && (
+                <Link
+                    to={`/panel/${type}/actualizar/${id}`}
+                    className="btn btn-secondary border"
+                >
+                    <FiEdit />
+                </Link>
+            )}
         </div>
     );
 }
