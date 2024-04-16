@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router";
 import Administrador from "../pages/admin/Administrador";
 import Habitacion from "../pages/admin/habitacion/Habitacion";
+import Reserva from "../pages/admin/reserva/Reserva";
 import Usuario from "../pages/admin/usuario/Usuario";
 import Crear from "../pages/admin/habitacion/Crear";
 import Formulario from "../pages/admin/usuario/Formulario";
@@ -17,6 +18,7 @@ function AdminRoutes() {
                     path="/usuario/actualizar/:id"
                     element={<Formulario />}
                 ></Route>
+                <Route path="/reserva" element={<Reserva />}></Route>
                 <Route path="/habitacion" element={<Habitacion />}></Route>
                 <Route
                     exac
