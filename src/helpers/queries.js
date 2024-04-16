@@ -174,9 +174,9 @@ export const deleteReserva = async (id) => {
     try {
         const res = await fetch(`${api_reservas}/${id}`, {
             method: "DELETE",
-            /* headers: {
+            headers: {
                 "x-token": JSON.parse(sessionStorage.getItem("usuario")).token,
-            }, */
+            },
         });
         return res;
     } catch (error) {
@@ -191,7 +191,7 @@ export const postReserva = async (data) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                /* "x-token": JSON.parse(sessionStorage.getItem("usuario")).token, */
+                "x-token": JSON.parse(sessionStorage.getItem("usuario")).token,
             },
             body: JSON.stringify({ userId, habId, informacion }),
         });
@@ -205,7 +205,7 @@ const checkFree = (entrada, salida, fecha) => {
     if (fecha[0] === "") {
         return true;
     } else {
-        return salida < fecha[0] && entrada > fecha[1];
+        return salida < fecha[0] || entrada > fecha[1];
     }
 };
 
