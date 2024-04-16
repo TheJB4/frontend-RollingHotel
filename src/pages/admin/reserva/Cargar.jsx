@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { check, postReserva } from "../../../helpers/queries";
+import {
+    check,
+    postReserva,
+    putHabitacion,
+    getHabitacionById,
+} from "../../../helpers/queries";
 import Swal from "sweetalert2";
 
 function Cargar(props) {
@@ -28,18 +33,33 @@ function Cargar(props) {
         if (!res.ok) {
             Swal.fire({
                 title: "Error",
-                text: "Algo salio mal!",
+                text: "Algo salio mal post!",
                 icon: "error",
             });
         } else {
-            Swal.fire({
-                title: "Listo!",
-                text: "La reserva fue cargada con exito!",
-                icon: "success",
-            });
-            props.onHide();
-            props.obtenerReservas(props.id);
-            reset();
+            const res = await getHabitacionById(data.habId);
+            const info = await res.json();
+            const hab = {
+                ...info,
+                fechaOcupada: [data.entrada, data.salida],
+            };
+            const response = await putHabitacion(hab, data.habId);
+            if (response.ok) {
+                Swal.fire({
+                    title: "Listo!",
+                    text: "La reserva fue cargada con exito!",
+                    icon: "success",
+                });
+                props.onHide();
+                props.obtenerReservas(props.id);
+                reset();
+            } else {
+                Swal.fire({
+                    title: "Error",
+                    text: "Algo salio mal put!",
+                    icon: "error",
+                });
+            }
         }
     };
 
@@ -59,9 +79,14 @@ function Cargar(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="px-2 px-md-5 py-4">
-                <Form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column">
+                <Form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="d-flex flex-column"
+                >
                     <Form.Group controlId="camas" className="mb-4">
-                        <Form.Label className="fw-bold">Cantidad de personas</Form.Label>
+                        <Form.Label className="fw-bold">
+                            Cantidad de personas
+                        </Form.Label>
                         <Form.Select
                             {...register("camas", {
                                 required: "ingrese la cantidad de camas",
@@ -82,7 +107,9 @@ function Cargar(props) {
                     </Form.Group>
                     <div>
                         <Form.Group controlId="entrada" className="mb-4">
-                            <Form.Label className="fw-bold">Fecha de entrada</Form.Label>
+                            <Form.Label className="fw-bold">
+                                Fecha de entrada
+                            </Form.Label>
                             <Form.Control
                                 type="date"
                                 {...register("entrada", {
@@ -96,7 +123,9 @@ function Cargar(props) {
                             )}
                         </Form.Group>
                         <Form.Group controlId="salida" className="mb-4">
-                            <Form.Label className="fw-bold">Fecha de salida</Form.Label>
+                            <Form.Label className="fw-bold">
+                                Fecha de salida
+                            </Form.Label>
                             <Form.Control
                                 type="date"
                                 {...register("salida", {
@@ -120,7 +149,9 @@ function Cargar(props) {
                     </div>
                     <hr />
                     <Form.Group controlId="habitacion" className="mb-4">
-                        <Form.Label className="fw-bold">Habitaciones disponibles</Form.Label>
+                        <Form.Label className="fw-bold">
+                            Habitaciones disponibles
+                        </Form.Label>
                         <Form.Select
                             {...register("habId", {
                                 required: "seleccione una habitacion",
@@ -155,14 +186,21 @@ function Cargar(props) {
                         )}
                     </Form.Group>
                     <Form.Group controlId="informacion" className="mb-4">
-                        <Form.Label className="fw-bold">Agregue informacion adicional</Form.Label>
+                        <Form.Label className="fw-bold">
+                            Agregue informacion adicional
+                        </Form.Label>
                         <Form.Control
                             as="textarea"
                             placeholder="opcional"
                             {...register("informacion")}
                         ></Form.Control>
                     </Form.Group>
-                    <Button type="submit" className="btn-dark rounded-0 w-250 align-self-center fw-bold">cargar</Button>
+                    <Button
+                        type="submit"
+                        className="btn-dark rounded-0 w-250 align-self-center fw-bold"
+                    >
+                        cargar
+                    </Button>
                 </Form>
             </Modal.Body>
         </Modal>
