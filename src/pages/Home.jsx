@@ -39,20 +39,21 @@ export default function Home() {
             <section className="w-100 vh-100">
                 <CarouselImages></CarouselImages>
             </section>
-            <section className="py-5 px-2 px-md-0">
-                <Container className="px-2">
-                    <Row>
-                        <Col xs="12" lg="4" className="text-center mb-2">
-                            <h2 className="fw-bold">Buscar Habitaciones </h2>
-                            <p className="fw-bold fs-5">
-                                Tarifas y disponibilidad
-                            </p>
-                        </Col>
-                        <Col xs="12" lg="8" className="px-4">
-                            <FormHome></FormHome>
-                        </Col>
-                    </Row>
-                </Container>
+            <section className="px-2 py-5 p-md-5 d-flex flex-column justify-content-center text-center gap-4 flex-md-row justify-content-md-evenly mb-4 align-items-center">
+                <div>
+                    <h2 className="fw-bold m-0 fs-1 mb-2">
+                        Tarifas y disponibilidad
+                    </h2>
+                    <p className="fs-4">
+                        Ingresa o registrate para iniciar tu reserva
+                    </p>
+                </div>
+                <Link
+                    to="/panel"
+                    className="btn w-250 mx-auto py-2 mx-md-0 btn-dark rounded-0 fw-bold fs-20"
+                >
+                    Iniciar reserva
+                </Link>
             </section>
             <section className="py-5 bg-beige">
                 <Container>
@@ -107,6 +108,15 @@ export default function Home() {
                     ))}
                 </Row>
             </section>
+            <div className="bg-beige px-2 py-5 p-md-5 d-flex flex-column justify-content-center text-center gap-4 flex-md-row justify-content-md-evenly">
+                    <h2 className="fw-bold m-0 fs-3">Tenes alguna duda?</h2>
+                    <Link
+                        to="/contacto"
+                        className="btn w-250 mx-auto mx-md-0 btn-dark rounded-0 fw-bold fs-20"
+                    >
+                        Contactanos
+                    </Link>
+                </div>
         </main>
     );
 }

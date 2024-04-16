@@ -36,6 +36,7 @@ function Login({ setUserLogged }) {
                 JSON.stringify({
                     email: user.email,
                     nombre: user.nombre,
+                    id: user.id,
                     esAdmin: user.esAdmin,
                     token: user.token,
                 })
